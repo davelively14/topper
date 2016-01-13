@@ -1,0 +1,23 @@
+<h2>Show intersection</h2>
+
+<ul>
+
+  <li>
+    <strong>Sector:</strong>
+    <%= @intersection.sector_id %>
+  </li>
+
+  <li>
+    <strong>Street1:</strong>
+    <%= @intersection.street1_id %>
+  </li>
+
+  <li>
+    <strong>Street2:</strong>
+    <%= @intersection.street2_id %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: intersection_path(@conn, :edit, @intersection) %>
+<%= link "Back", to: intersection_path(@conn, :index) %>

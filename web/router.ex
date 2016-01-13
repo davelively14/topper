@@ -19,6 +19,7 @@ defmodule Topper.Router do
     get "/", PageController, :index
     resources "/streets", StreetController
     resources "/sectors", SectorController
+    resources "/intersections", IntersectionController
   end
 
   # Other scopes may use custom stacks.
