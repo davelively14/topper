@@ -1,0 +1,33 @@
+<h2>Show report</h2>
+
+<ul>
+
+  <li>
+    <strong>User:</strong>
+    <%= @report.user_id %>
+  </li>
+
+  <li>
+    <strong>Intersection:</strong>
+    <%= @report.intersection_id %>
+  </li>
+
+  <li>
+    <strong>Repair:</strong>
+    <%= @report.repair %>
+  </li>
+
+  <li>
+    <strong>Topper:</strong>
+    <%= @report.topper %>
+  </li>
+
+  <li>
+    <strong>Side:</strong>
+    <%= @report.side %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: report_path(@conn, :edit, @report) %>
+<%= link "Back", to: report_path(@conn, :index) %>

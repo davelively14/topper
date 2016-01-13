@@ -1,16 +1,17 @@
-defmodule Topper.Intersection do
+defmodule Topper.Report do
   use Topper.Web, :model
 
-  schema "intersections" do
-    belongs_to :sector, Topper.Sector
-    belongs_to :street1, Topper.Street1
-    belongs_to :street2, Topper.Street2
-    has_many :reports, Topper.Report
+  schema "reports" do
+    field :repair, :boolean, default: false
+    field :topper, :boolean, default: false
+    field :side, :string
+    belongs_to :user, Topper.User
+    belongs_to :intersection, Topper.Intersection
 
     timestamps
   end
 
-  @required_fields ~w()
+  @required_fields ~w(repair topper side)
   @optional_fields ~w()
 
   @doc """

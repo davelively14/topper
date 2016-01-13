@@ -21,6 +21,7 @@ defmodule Topper.Router do
     resources "/sectors", SectorController
     resources "/intersections", IntersectionController
     resources "/users", UserController
+    resources "/reports", ReportController
   end
 
   # Other scopes may use custom stacks.

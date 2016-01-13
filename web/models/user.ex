@@ -6,6 +6,7 @@ defmodule Topper.User do
     field :pass_hash, :string
     field :password, :string, virtual: true
     field :admin, :boolean, default: false
+    has_many :reports, Topper.Report
 
     timestamps
   end

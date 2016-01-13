@@ -1,0 +1,34 @@
+<h2>Listing reports</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Intersection</th>
+      <th>Repair</th>
+      <th>Topper</th>
+      <th>Side</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for report <- @reports do %>
+    <tr>
+      <td><%= report.user_id %></td>
+      <td><%= report.intersection_id %></td>
+      <td><%= report.repair %></td>
+      <td><%= report.topper %></td>
+      <td><%= report.side %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: report_path(@conn, :show, report), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: report_path(@conn, :edit, report), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: report_path(@conn, :delete, report), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New report", to: report_path(@conn, :new) %>
