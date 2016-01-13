@@ -20,6 +20,7 @@ defmodule Topper.Router do
     resources "/streets", StreetController
     resources "/sectors", SectorController
     resources "/intersections", IntersectionController
+    resources "/users", UserController
   end
 
   # Other scopes may use custom stacks.
