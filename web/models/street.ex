@@ -3,6 +3,7 @@ defmodule Topper.Street do
 
   schema "streets" do
     field :name, :string
+    has_many :intersections, Topper.Intersection
 
     timestamps
   end
