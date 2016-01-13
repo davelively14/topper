@@ -1,0 +1,6 @@
+<h2>Edit street</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: street_path(@conn, :update, @street) %>
+
+<%= link "Back", to: street_path(@conn, :index) %>

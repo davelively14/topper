@@ -1,0 +1,26 @@
+<h2>Listing streets</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for street <- @streets do %>
+    <tr>
+      <td><%= street.name %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: street_path(@conn, :show, street), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: street_path(@conn, :edit, street), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: street_path(@conn, :delete, street), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New street", to: street_path(@conn, :new) %>

@@ -1,0 +1,13 @@
+<h2>Show sector</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @sector.name %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: sector_path(@conn, :edit, @sector) %>
+<%= link "Back", to: sector_path(@conn, :index) %>

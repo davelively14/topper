@@ -1,0 +1,13 @@
+<h2>Show street</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @street.name %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: street_path(@conn, :edit, @street) %>
+<%= link "Back", to: street_path(@conn, :index) %>

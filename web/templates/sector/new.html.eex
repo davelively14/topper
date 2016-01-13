@@ -1,0 +1,6 @@
+<h2>New sector</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: sector_path(@conn, :create) %>
+
+<%= link "Back", to: sector_path(@conn, :index) %>

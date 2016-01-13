@@ -1,0 +1,26 @@
+<h2>Listing sectors</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for sector <- @sectors do %>
+    <tr>
+      <td><%= sector.name %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: sector_path(@conn, :show, sector), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: sector_path(@conn, :edit, sector), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: sector_path(@conn, :delete, sector), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New sector", to: sector_path(@conn, :new) %>
