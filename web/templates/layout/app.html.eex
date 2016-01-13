@@ -15,7 +15,9 @@
     <div class="container" role="main">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+          <li><%= link "Streets", to: street_path(@conn, :index) %></li>
+          <li><%= link "Intersections", to: intersection_path(@conn, :index) %></li>
+          <li><%= link "Reports", to: report_path(@conn, :index) %></li>
         </ul>
         <span class="logo"></span>
       </div>
