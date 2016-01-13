@@ -18,6 +18,10 @@
           <li><%= link "Streets", to: street_path(@conn, :index) %></li>
           <li><%= link "Intersections", to: intersection_path(@conn, :index) %></li>
           <li><%= link "Reports", to: report_path(@conn, :index) %></li>
+          <li><%= link "Users", to: user_path(@conn, :index) %></li>
+        </ul>
+        <ul class="nav nav-pills pull-left">
+          <li><%= link "Home", to: page_path(@conn, :index) %></li>
         </ul>
         <span class="logo"></span>
       </div>
