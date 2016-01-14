@@ -1,10 +1,9 @@
-<h2>Listing users</h2>
+<h2>Registered Users</h2>
 
 <table class="table">
   <thead>
     <tr>
       <th>Email</th>
-      <th>Pass hash</th>
       <th>Admin</th>
 
       <th></th>
@@ -14,7 +13,6 @@
 <%= for user <- @users do %>
     <tr>
       <td><%= user.email %></td>
-      <td><%= user.pass_hash %></td>
       <td><%= user.admin %></td>
 
       <td class="text-right">
