@@ -11,7 +11,7 @@ defmodule Topper.User do
     timestamps
   end
 
-  @required_fields ~w(email pass_hash admin)
+  @required_fields ~w(email password admin)
   @optional_fields ~w()
 
   @doc """
@@ -23,5 +23,22 @@ defmodule Topper.User do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
+  end
+
+  def reg_changeset(model, params) do
+    model
+    |> changeset(params)
+    |> cast(params, ~w(password), [])
+    |> validate_length(:password, min: 6, max: 100)
+    |> add_pass_hash()
+  end
+
+  defp add_pass_hash(changeset) do
+    case changeset do
+      %Ecto.Changeset{valid?: true, changes: %{password: pass}} ->
+        put_change(changeset, :pass_hash, Comeonin.Bcrypt.hashpwsalt(pass))
+      _ ->
+        changeset
+    end
   end
 end
