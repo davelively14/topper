@@ -5,13 +5,14 @@ defmodule Topper.User do
     field :email, :string
     field :pass_hash, :string
     field :password, :string, virtual: true
+    field :confirm_password, :string, virtual: true
     field :admin, :boolean, default: false
     has_many :reports, Topper.Report
 
     timestamps
   end
 
-  @required_fields ~w(email password admin)
+  @required_fields ~w(email password confirm_password admin)
   @optional_fields ~w()
 
   @doc """
@@ -30,6 +31,8 @@ defmodule Topper.User do
     |> changeset(params)
     |> cast(params, ~w(password), [])
     |> validate_length(:password, min: 6, max: 100)
+    |> validate_length(:confirm_password, min: 6, max: 100)
+    |> validate_password()
     |> add_pass_hash()
   end
 
@@ -40,5 +43,11 @@ defmodule Topper.User do
       _ ->
         changeset
     end
+  end
+
+  defp validate_password(changeset) do
+    pass = get_field(changeset, :password)
+    confirm = pass == get_field(changeset, :confirm_password)
+    if confirm, do: changeset, else: add_error(changeset, :confirm_password, "Password do not match")
   end
 end

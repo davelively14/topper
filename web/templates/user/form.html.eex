@@ -21,6 +21,11 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :confirm_password, "Confirm Password", class: "control-label" %>
+    <%= text_input f, :confirm_password, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= label f, :admin, "Admin", class: "control-label" %>
     <%= checkbox f, :admin, class: "form-control" %>
   </div>
