@@ -7,6 +7,7 @@ defmodule Topper.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug Topper.Auth, repo: Topper.Repo
   end
 
   pipeline :api do
@@ -22,6 +23,7 @@ defmodule Topper.Router do
     resources "/intersections", IntersectionController
     resources "/users", UserController
     resources "/reports", ReportController
+    resources "/sessions", SessionController, only: [:new, :create, :delete]
   end
 
   # Other scopes may use custom stacks.
