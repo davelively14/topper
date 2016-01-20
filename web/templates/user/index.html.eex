@@ -1,6 +1,7 @@
 <h2>Registered Users</h2>
 
 <table class="table">
+
   <thead>
     <tr>
       <th>Email</th>
