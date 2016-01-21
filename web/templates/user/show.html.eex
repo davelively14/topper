@@ -1,7 +1,17 @@
-<h2>Show user</h2>
+<h2><%= @user.email %>'s page</h2>
 
+<%= if @current_user && @current_user.admin do %>
+  <h4>Admin Menu</h4>
+  <ul>
+    <li><%= link "Manage Streets", to: street_path(@conn, :index) %></li>
+    <li><%= link "Manage Intersections", to: intersection_path(@conn, :index) %></li>
+    <li><%= link "Manage Users", to: user_path(@conn, :index) %></li>
+    <li><%= link "Reports", to: report_path(@conn, :index) %></li>
+  </ul>
+<% end %>
+
+<h4>Personal information</h4>
 <ul>
-
   <li>
     <strong>Email:</strong>
     <%= @user.email %>
