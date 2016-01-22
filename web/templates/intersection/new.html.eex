@@ -1,6 +1,7 @@
 <h2>New intersection</h2>
 
 <%= render "form.html", changeset: @changeset,
-                        action: intersection_path(@conn, :create) %>
+                        action: intersection_path(@conn, :create),
+                        streets: @streets %>
 
 <%= link "Back", to: intersection_path(@conn, :index) %>
