@@ -13,7 +13,8 @@ defmodule Topper.IntersectionController do
   def new(conn, _params) do
     changeset = Intersection.changeset(%Intersection{})
     streets = Repo.all(Topper.Street)
-    render(conn, "new.html", streets: streets, changeset: changeset)
+    street_sel = for street <- streets, do: {street.name, street.id}
+    render(conn, "new.html", street_sel: street_sel, changeset: changeset)
   end
 
   def create(conn, %{"intersection" => intersection_params}) do
