@@ -17,7 +17,8 @@
 
 
   <div class="form-group">
-    <%= label f, :street1, "First Street", class: "control-label" %>
+    <%= label f, :street1_id, "First Street", class: "control-label" %>
+    <%= select(f, :street1_id, @streets.id) %>
   </div>
 
   <div class="form-group">
