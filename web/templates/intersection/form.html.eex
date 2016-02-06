@@ -10,6 +10,7 @@
     </div>
   <% end %>
 
+
   <div class="form-group">
     <%= label f, :street1_id, "First Street", class: "control-label" %>
     <%= select(f, :street1_id, @street_sel) %>
