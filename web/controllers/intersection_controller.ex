@@ -10,7 +10,6 @@ defmodule Topper.IntersectionController do
     render(conn, "index.html", intersections: intersections)
   end
 
-
   def new(conn, _params) do
     changeset = Intersection.changeset(%Intersection{})
     streets = Repo.all(Topper.Street)
